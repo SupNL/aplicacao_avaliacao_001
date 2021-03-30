@@ -26,22 +26,20 @@ const InfoPost : React.FC<RouteComponentProps<matchParams>> = (props) => {
         }).finally(() => {
             setLoading(false);
         });
-    }, []);
+    }, [postId]);
 
     return (
         <div>
             {
-                loading ? 
-                (<p>Carregando...</p>) : 
-                    post !== undefined ? 
-                    <>
+                loading ? (<p>Carregando...</p>) : 
+                post !== undefined ? 
+                <>
                     <h1>{post.title}</h1>
                     <h3>Escrito por usuário {post.userId}</h3>
                     <p>{post.body}</p>
                     <Link to="/posts">Voltar</Link>
-                    </> :
-                    (<p>Não encontrado.</p>)
-                
+                </> :
+                (<p>Não encontrado.</p>)
             }
             
         </div>
