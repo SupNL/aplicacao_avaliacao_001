@@ -1,0 +1,2 @@
+# Avaliação de desenvolvimento
+Este repositório é uma avaliação de desenvolvimento para uma aplicação web, desenvolvida em até três dias. A proposta é listar uma série de *postagens* com duas *views* diferentes: uma para a listagem dos *posts* de forma resumida, e outra para detalhar um determinado *post*.
