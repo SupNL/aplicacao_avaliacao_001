@@ -2,8 +2,7 @@
 Este repositório é uma avaliação de desenvolvimento para uma aplicação web, desenvolvida em até três dias. A proposta é listar uma série de *postagens* com duas *views* diferentes: uma para a listagem dos *posts* de forma resumida, e outra para detalhar um determinado *post*.
 
 ## Requerimentos
-Para executar a aplicação, é necessário que você tenha a última versão de Node.js instalado em sua máquina.
-https://nodejs.org/
+Para executar a aplicação, é necessário que você tenha a última versão de Node.js instalado em sua máquina (https://nodejs.org/).
 Verifique se o Node.js e o node packet manager (npm) instalou corretamente.
 
 ## Execução
