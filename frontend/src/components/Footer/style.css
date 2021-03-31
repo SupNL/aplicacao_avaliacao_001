@@ -7,5 +7,7 @@ footer {
     color: var(--text-contrast);
     padding: 1rem;
 
+    width: 100vw;
+
     margin-top: auto;
 }
