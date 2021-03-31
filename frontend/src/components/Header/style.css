@@ -16,3 +16,18 @@ header div {
 header div h3 {
     margin: auto;
 }
+
+@media only screen and (max-width: 320px) {
+    header div {
+        justify-content: center;
+    }
+    header div h3 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    header div h3 {
+        display: none;
+    }
+}
