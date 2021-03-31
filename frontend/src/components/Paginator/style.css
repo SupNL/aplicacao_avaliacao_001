@@ -1,0 +1,21 @@
+.paginator {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+}
+
+.paginator svg:hover, .paginator .border {
+    cursor:pointer;
+}
+
+.paginator .border:hover {
+    font-size: 1.2rem;
+    transition: font-size 0.3s;
+}
+
+.paginator .middle {
+    font-weight: 700;
+    font-size: 1.6rem;
+}
