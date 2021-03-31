@@ -39,6 +39,8 @@ const ListPosts = () => {
     // não ha limit ou page, adaptando para esse caso
     // chamada única
     useEffect(() => {
+        document.title = "Lista de posts - página 1";
+
         api.get('/posts')
         .then((result) => {
             setPostList(result.data);
@@ -59,8 +61,10 @@ const ListPosts = () => {
 
     useEffect(() => {
         // carregar apenas se o total de páginas for definido
-        if(totalPages.current != 0)
+        if(totalPages.current != 0){
+            document.title = "Lista de posts - página " + currentPage;
             loadPage(currentPage);
+        }
     }, [currentPage, loadPage])
 
     return (

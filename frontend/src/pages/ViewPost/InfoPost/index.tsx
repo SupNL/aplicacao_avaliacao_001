@@ -35,6 +35,15 @@ const InfoPost : React.FC<RouteComponentProps<matchParams>> = (props) => {
         });
     }, [postId]);
 
+    useEffect(() => {
+        let title;
+        if(post !== undefined)
+            title = `${post.title.length > 25 ? post.title.substr(0, 25) + "..." : post.title}`
+        else
+            title = "Post " + postId;
+        document.title = title;
+    }, [post]);
+
     return (
         <div className="post-page">
             <Header />
