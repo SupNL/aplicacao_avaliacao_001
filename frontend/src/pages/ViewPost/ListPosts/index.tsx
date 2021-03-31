@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Footer from '../../../components/Footer';
 import Header from '../../../components/Header';
 import Paginator from '../../../components/Paginator';
@@ -61,7 +60,7 @@ const ListPosts = () => {
 
     useEffect(() => {
         // carregar apenas se o total de páginas for definido
-        if(totalPages.current != 0){
+        if(totalPages.current !== 0){
             document.title = "Lista de posts - página " + currentPage;
             loadPage(currentPage);
         }

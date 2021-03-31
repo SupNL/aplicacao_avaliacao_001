@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { Link } from 'react-router-dom';
 import Button from '../../../components/Button';
 import Footer from '../../../components/Footer';
 import Header from '../../../components/Header';
@@ -23,7 +22,7 @@ interface postObjectAPI {
 }
 
 const InfoPost : React.FC<RouteComponentProps<matchParams>> = (props) => {
-    const { postId } = props.match.params;
+    const postId = Number(props.match.params.postId);
     const [loading, setLoading] = useState(true);
     const [post, setPost] = useState<postObjectAPI>();
 
@@ -45,7 +44,7 @@ const InfoPost : React.FC<RouteComponentProps<matchParams>> = (props) => {
         else
             title = "Post " + postId;
         document.title = title;
-    }, [post]);
+    }, [post, postId]);
 
     return (
         <div className="post-page">

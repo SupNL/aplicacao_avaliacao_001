@@ -5,7 +5,7 @@ import PostCard from '../PostCard';
 
 interface RecommendationsProps {
     amount : number;
-    excludeId ?: number | string;
+    excludeId ?: number;
 }
 
 interface postObjectAPI {
@@ -25,14 +25,14 @@ const Recommendations : React.FC<RecommendationsProps> = (props) => {
         .then((result) => {
             setPostList(result.data.slice(0, props.amount + 1));
         });
-    }, []);
+    }, [props.amount]);
 
     useEffect(() => {
         if(postList.length > props.amount) {
             setLoading(true);
             let removed = false;
             setVisiblePostList(postList.filter((post, i, arr) => {
-                if(props.excludeId != post.id && (removed || i !== props.amount)){
+                if(props.excludeId !== post.id && (removed || i !== props.amount)){
                     return true;
                 } else {
                     removed = true;
@@ -41,7 +41,7 @@ const Recommendations : React.FC<RecommendationsProps> = (props) => {
             }));
         }
         setLoading(false);
-    }, [props.excludeId, postList])
+    }, [props.excludeId, postList, props.amount])
     return (
         <>
             {!loading && 
