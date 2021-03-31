@@ -86,7 +86,7 @@ const ListPosts = () => {
                                     setPage={setCurrentPage}
                                 />
                                 {visiblePosts.map(post => (
-                                    <PostCard key={post.id} id={post.id} title={post.title} body={post.title} />
+                                    <PostCard key={post.id} id={post.id} title={post.title} body={post.body} />
                                 ))}
                                 <Paginator 
                                     totalPages={totalPages.current} 
