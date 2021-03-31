@@ -1,0 +1,11 @@
+:root {
+    --theme-primary:#F2F7F2;
+    --theme-secondary: #BCAA99;
+    --theme-tertiary: #443850;
+
+    --text-main: #161411;
+    --text-contrast: #F2F7F2;
+
+    --button-primary: #B3809A;
+    --button-primary-shade: #CFAFC0;
+}
