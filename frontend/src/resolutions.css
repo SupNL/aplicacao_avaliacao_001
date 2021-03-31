@@ -1,0 +1,35 @@
+:root {
+    --res-xl: 1200px;
+    --res-l: 992px;
+    --res-md: 768px;
+    --res-s: 480px;
+    --res-xs: 320px;
+}
+
+@media only screen and (max-width: 320px) {
+    body {
+        font-size: 1.2rem;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    body {
+        font-size: 1.1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}

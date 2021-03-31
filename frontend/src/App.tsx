@@ -5,6 +5,7 @@ import RouteList from './routes';
 
 import './style.css';
 import './color-palette.css';
+import './resolutions.css';
 
 const App = () => {
   return (
