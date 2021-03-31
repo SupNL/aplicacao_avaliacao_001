@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
+import Button from '../../../components/Button';
+import Footer from '../../../components/Footer';
+import Header from '../../../components/Header';
+
 import api from '../../../services/apiService';
+
+import '../style.css';
+import './style.css';
 
 interface matchParams {
     postId : string;
@@ -29,19 +36,22 @@ const InfoPost : React.FC<RouteComponentProps<matchParams>> = (props) => {
     }, [postId]);
 
     return (
-        <div>
-            {
-                loading ? (<p>Carregando...</p>) : 
-                post !== undefined ? 
-                <>
-                    <h1>{post.title}</h1>
-                    <h3>Escrito por usuário {post.userId}</h3>
-                    <p>{post.body}</p>
-                    <Link to="/posts">Voltar</Link>
-                </> :
-                (<p>Não encontrado.</p>)
-            }
-            
+        <div className="post-page">
+            <Header />
+            <div className="content">
+                {
+                    loading ? (<p>Carregando...</p>) : 
+                    post !== undefined ? 
+                    <div className="post-content">
+                        <h1>{post.title}</h1>
+                        <h3>Escrito por usuário {post.userId}</h3>
+                        <p>{post.body}</p>
+                    </div> :
+                    (<p>Postagem inexistente.</p>)
+                }
+                <Button to="/posts">Voltar</Button>
+            </div>
+            <Footer />    
         </div>
         
     )
