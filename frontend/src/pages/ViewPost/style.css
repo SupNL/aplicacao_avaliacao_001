@@ -1,0 +1,19 @@
+body {
+    background-color: var(--theme-primary);
+    color: var(--text-primary);
+}
+
+.post-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    padding: 1rem;
+    padding-left: 1.6rem;
+}
+
+.content h1 {
+    margin-bottom: 1rem;
+}

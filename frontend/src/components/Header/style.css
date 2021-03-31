@@ -1,0 +1,10 @@
+header {
+    display: flex;
+    align-items: center;
+    background-color: var(--theme-secondary);
+    padding: 1rem;
+}
+
+header h3 {
+    margin: auto;
+}

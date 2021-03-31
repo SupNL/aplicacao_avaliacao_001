@@ -1,8 +1,14 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../../../components/Footer';
+import Header from '../../../components/Header';
 import Paginator from '../../../components/Paginator';
+import PostCard from '../../../components/PostCard';
 
 import api from '../../../services/apiService';
+
+import '../style.css';
+import './style.css';
 
 interface postObjectAPI {
     userId : number;
@@ -49,32 +55,37 @@ const ListPosts = () => {
     }, [currentPage, loadPage])
 
     return (
-        <div>
-            <h1>Lista de postagens</h1>
-            <ul>
-            {loading ? 
-                "Carregando postagens..." : 
-                postList.length > 0 ?
-                (
-                    <>
-                        {visiblePosts.map(post => (
-                            <li key={post.id}>
-                                <h3>{post.title}</h3>
-                                <p>{post.body.length > 50 ? post.body.substr(0, 50) + "..." : post.body}</p>
-                                <Link to={`posts/${post.id}`}>Continuar lendo</Link>
-                            </li>
-                        ))}
-                        <Paginator 
-                            totalPages={totalPages.current} 
-                            currentPage={currentPage} 
-                            setPage={setCurrentPage}
-                        />
-                    </>
-                ) :
-                <p>Não há resultados.</p>
-                
-            }
-            </ul>
+        <div className="post-page">
+            <Header />
+            <div className="content">
+                <h1>Lista de postagens</h1>
+                <ul>
+                {loading ? 
+                    "Carregando postagens..." : 
+                    postList.length > 0 ?
+                    (
+                        <>
+                            <Paginator 
+                                totalPages={totalPages.current} 
+                                currentPage={currentPage} 
+                                setPage={setCurrentPage}
+                            />
+                            {visiblePosts.map(post => (
+                                <PostCard key={post.id} id={post.id} title={post.title} body={post.title} />
+                            ))}
+                            <Paginator 
+                                totalPages={totalPages.current} 
+                                currentPage={currentPage} 
+                                setPage={setCurrentPage}
+                            />
+                        </>
+                    ) :
+                    <p>Não há resultados.</p>
+                    
+                }
+                </ul>
+            </div>
+            <Footer />
             
         </div>
     )
