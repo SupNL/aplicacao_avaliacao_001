@@ -1,0 +1,13 @@
+.post-content h3::after {
+    content: "";
+    margin-top: 0.4rem;
+    margin-bottom: 1rem;
+    display: block;
+    width: 60vw;
+    height: 1px;
+    background-color: var(--text-main);
+}
+
+.content > a {
+    margin-top: 1rem;
+}
