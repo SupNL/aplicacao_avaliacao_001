@@ -3,7 +3,7 @@ header {
     justify-content: center;
     background-color: var(--theme-secondary);
     padding: 1rem;
-    width: 100vw;
+    width: 100%;
 }
 
 header div {
