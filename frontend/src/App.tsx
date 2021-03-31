@@ -1,6 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import RouteList from './routes'
+
+import RouteList from './routes';
+
+import './style.css';
+import './color-palette.css';
 
 const App = () => {
   return (
