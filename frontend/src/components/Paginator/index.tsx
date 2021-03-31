@@ -1,4 +1,7 @@
 import React from 'react';
+import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
+
+import './style.css'
 
 interface PaginatorProps {
     totalPages : number;
@@ -16,12 +19,12 @@ const Paginator : React.FC<PaginatorProps> = (props) => {
     }
 
     return (
-        <div>
-            <div onClick={decrementPage}>Back</div>
-            {props.currentPage !== 1 && <div onClick={() => props.setPage(1)}>1 ... </div>}
-            {props.currentPage}
-            {props.totalPages !== 1 && props.currentPage !== props.totalPages && <div onClick={() => props.setPage(props.totalPages)}>... 10</div>}
-            <div onClick={incrementPage}>Next</div>
+        <div className="paginator">
+            <button><FiArrowLeft size="1.8rem" onClick={decrementPage} /></button>
+            {props.currentPage !== 1 && <div className="border" onClick={() => props.setPage(1)}>1 ... </div>}
+            <div className="middle">{props.currentPage}</div>
+            {props.totalPages !== 1 && props.currentPage !== props.totalPages && <div className="border" onClick={() => props.setPage(props.totalPages)}>... 10</div>}
+            <button><FiArrowRight size="1.8rem" onClick={incrementPage} /></button>
         </div>
     )
 }
