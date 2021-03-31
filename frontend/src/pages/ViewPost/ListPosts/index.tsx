@@ -20,6 +20,7 @@ interface postObjectAPI {
 const ListPosts = () => {
     const itemsPerPage = 10;
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
     const [postList, setPostList] = useState<postObjectAPI[]>([]);
     const [visiblePosts, setVisiblePosts] = useState<postObjectAPI[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -38,8 +39,12 @@ const ListPosts = () => {
     // não ha limit ou page, adaptando para esse caso
     // chamada única
     useEffect(() => {
-        api.get('/posts').then((result) => {
+        api.get('/posts')
+        .then((result) => {
             setPostList(result.data);
+        })
+        .catch((err) => {
+            setError(true);
         });
     }, []);
 
@@ -64,29 +69,30 @@ const ListPosts = () => {
             <div className="content">
                 <h1>Lista de postagens</h1>
                 <ul>
-                {loading ? 
-                    "Carregando postagens..." : 
-                    postList.length > 0 ?
-                    (
-                        <>
-                            <Paginator 
-                                totalPages={totalPages.current} 
-                                currentPage={currentPage} 
-                                setPage={setCurrentPage}
-                            />
-                            {visiblePosts.map(post => (
-                                <PostCard key={post.id} id={post.id} title={post.title} body={post.title} />
-                            ))}
-                            <Paginator 
-                                totalPages={totalPages.current} 
-                                currentPage={currentPage} 
-                                setPage={setCurrentPage}
-                            />
-                        </>
-                    ) :
-                    <p>Não há resultados.</p>
-                    
-                }
+                {error ? 
+                    <p>Erro ao tentar carregar os posts.</p> :
+                    loading ? 
+                        <p>Não há resultados.</p> : 
+                        postList.length > 0 ?
+                        (
+                            <>
+                                <Paginator 
+                                    totalPages={totalPages.current} 
+                                    currentPage={currentPage} 
+                                    setPage={setCurrentPage}
+                                />
+                                {visiblePosts.map(post => (
+                                    <PostCard key={post.id} id={post.id} title={post.title} body={post.title} />
+                                ))}
+                                <Paginator 
+                                    totalPages={totalPages.current} 
+                                    currentPage={currentPage} 
+                                    setPage={setCurrentPage}
+                                />
+                            </>
+                        ) :
+                        <p>Não há resultados.</p>
+                    }
                 </ul>
             </div>
             <Footer />
