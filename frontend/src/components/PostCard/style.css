@@ -1,0 +1,17 @@
+li h2 {
+    margin-bottom: 0.3rem;
+}
+
+li p {
+    margin-bottom: 0.6rem;
+}
+
+li::after {
+    content: "";
+    margin-top: 0.8rem;
+    margin-bottom: 1.6rem;
+    display: block;
+    width: 80vw;
+    height: 1px;
+    background-color: var(--text-main);
+}
