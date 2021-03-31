@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from '../../../components/Button';
 import Footer from '../../../components/Footer';
 import Header from '../../../components/Header';
+import Recommendations from '../../../components/Recommendations';
 
 import api from '../../../services/apiService';
 
@@ -27,6 +28,8 @@ const InfoPost : React.FC<RouteComponentProps<matchParams>> = (props) => {
     const [post, setPost] = useState<postObjectAPI>();
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+        setLoading(true);
         api.get(`/posts/${postId}`).then((result) => {
             setPost(result.data);
             
@@ -59,6 +62,7 @@ const InfoPost : React.FC<RouteComponentProps<matchParams>> = (props) => {
                     (<p>Postagem inexistente.</p>)
                 }
                 <Button to="/posts">Voltar</Button>
+                <Recommendations amount={4} excludeId={postId} />
             </div>
             <Footer />    
         </div>
