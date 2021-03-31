@@ -35,8 +35,8 @@ const ListPosts = () => {
     }, [postList]);
 
     // estamos recebendo todos os resultados direto da API
-    // não ha limit ou page
-    // adaptando para esse caso
+    // não ha limit ou page, adaptando para esse caso
+    // chamada única
     useEffect(() => {
         api.get('/posts').then((result) => {
             setPostList(result.data);
@@ -44,14 +44,18 @@ const ListPosts = () => {
     }, []);
 
     useEffect(() => {
+        // somente carregar a página um pela primeira vez quando existir posts
         if(postList.length !== 0){
             totalPages.current = Math.ceil(postList.length / itemsPerPage);
             loadPage(1);
         } 
     }, [postList, loadPage]);
 
+
     useEffect(() => {
-        loadPage(currentPage);
+        // carregar apenas se o total de páginas for definido
+        if(totalPages.current != 0)
+            loadPage(currentPage);
     }, [currentPage, loadPage])
 
     return (
