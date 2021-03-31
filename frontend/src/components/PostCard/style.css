@@ -11,7 +11,7 @@ li::after {
     margin-top: 0.8rem;
     margin-bottom: 1.6rem;
     display: block;
-    width: 80vw;
+    width: 80%;
     height: 1px;
     background-color: var(--text-main);
 }
